@@ -26,23 +26,42 @@
 }
 
 .Foot {
-  background-color: rgb(13, 185, 13);
+  background-color: #053d00;
   color: white;
   padding: 10px;
   position: fixed;
   bottom: 0;
   width: 100%;
+
 }
+
 
 .Below {
   position: absolute;
-  top: 50%;
+  top: 70%;
 }
 
 .Text {
-  text-decoration: underline;
+  text-decoration: underline #18d008;
+  text-align: start;
+  padding-left: 50px;
+}
+
+.Head {
+  white-space: nowrap;
+  padding: 20px;
+  text-align: center;
+  color: #477e42;
+}
+
+.TextA {
+  text-decoration: underline #18d008;
+  position: absolute;
+  top: 30%;
+  text-align: start;
 }
 .ParentDiv {
+  padding-top: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,15 +69,39 @@
 }
 
 .Card {
-  width: 250px;
-  height: 200px;
+  width: 300px;
+  height: 320px;
   border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 20px;
+  padding-right: 100px;
 }
 
+
 .Paragraph {
-  white-space: break-spaces;
+  word-wrap: normal;
   text-align: start;
-  padding-left: 10px;
+  padding-left: 50px;
 }
+
+.Drop {
+  font-size: 16px;
+  border: 1px solid rgb(15, 185, 13);
+  border-radius: 5px;
+  width: 200px;
+  position: relative;
+  left: 23px;
+  background-color: #18d008;
+  padding: 1px;
+}
+.SmallText {
+  padding: 20px;
+  color: gray !important;
+}
+
+.btn-light {
+  position: relative;
+  left: 1%;
+  color: #477e42;
+}
+
