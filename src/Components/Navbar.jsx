@@ -1,20 +1,31 @@
-import React from 'react'
+import React from "react";
 
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
-
 const Navbar = () => {
-    return (
-        <nav className='NavbarItems'>
-            <h1>Bus Transit Service</h1>
-        <ul className='NavMenu'>
-          <li>
-            <CustomLink to="/landing" className='NavLinls'> Home</CustomLink>
-          </li>
-        </ul>
-      </nav>
-    );
-}
+  return (
+    <nav className="NavbarItems">
+      <h1 className="Head">Bus Transit Service</h1>
+      <ul className="NavMenu">
+        <li>
+          <CustomLink to="/landing" className="NavLinks">
+            Travel
+          </CustomLink>
+        </li>
+        <li>
+          <CustomLink to="/login" className="NavLinksa">
+            Login
+          </CustomLink>
+        </li>
+        <li>
+          <CustomLink to="/signup" className="NavLinksb">
+            Sign Up
+          </CustomLink>
+        </li>
+      </ul>
+    </nav>
+  );
+};
 
 function CustomLink({ to, children, ...props }) {
   const resolvedPath = useResolvedPath(to);
@@ -28,4 +39,4 @@ function CustomLink({ to, children, ...props }) {
     </li>
   );
 }
-export default Navbar
+export default Navbar;

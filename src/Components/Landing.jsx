@@ -2,7 +2,7 @@ import React from "react";
 import Select from "react-select";
 import { useState } from "react";
 
-// import Img from "../Components/img/scarbor-siu-G9ibPhxqagE-unsplash.jpg";
+import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
 // import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -116,6 +116,7 @@ const Landing = () => {
   function PaymentMethod({ handleNext, handleBack }) {
     return (
       <div>
+        
         <Select
           className="Drop"
           options={options}
@@ -144,6 +145,9 @@ const Landing = () => {
 
   return (
     <div>
+      <div className="img">
+        <img className="img-tag" src={Img} alt={Img} />
+      </div>
       <div>
         {currentStep === 1 && (
           <From handleNext={handleNext} handleBack={handleBack} />
@@ -203,7 +207,7 @@ const Landing = () => {
         </ul>
       </div>
       <footer className="Foot">
-        <ul>
+        <ul className="ul">
           <li>Routes</li>
           <li>About us</li>
           <li>Contact us</li>
