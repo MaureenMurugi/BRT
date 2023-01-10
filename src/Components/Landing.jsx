@@ -1,8 +1,11 @@
 import React from "react";
 import Select from "react-select";
+import { useState } from "react";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import Img from "../Components/img/scarbor-siu-G9ibPhxqagE-unsplash.jpg";
+// import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const options = [
   { value: "chocolate", label: "Chocolate" },
@@ -10,23 +13,156 @@ const options = [
   { value: "vanilla", label: "Vanilla" },
 ];
 
-
 const Landing = () => {
-  return (
-    <div>
+  const [currentStep, setCurrentStep] = useState(1);
+  const [isNextDisabled, setIsNextDisabled] = useState(false);
+  const [isBackDisabled, setIsBackDisabled] = useState(false);
+
+  function handleNext() {
+    if (currentStep === 4) {
+      isNextDisabled(true);
+      return;
+    }
+    setCurrentStep(currentStep + 1);
+    setIsNextDisabled(false);
+  }
+
+  function handleBack() {
+    if (currentStep === 1) {
+      isBackDisabled(true);
+      return;
+    }
+    setCurrentStep(currentStep - 1);
+    setIsBackDisabled(false);
+  }
+
+  function From({ handleNext, handleBack }) {
+    return (
+      <div>
+        <Select className="Drop" options={options} placeholder="From:" />
+        <small className="SmallText">Where are you coming from</small>
+        <div>
+          <button
+            onClick={handleNext}
+            disabled={isNextDisabled}
+            class="btn btn-light "
+          >
+            Next
+          </button>
+          <button
+            onClick={handleBack}
+            disabled={isBackDisabled}
+            class="btn btn-light "
+          >
+            Back
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  function WhereTo({ handleNext, handleBack }) {
+    return (
+      <div>
+        <Select className="Drop" options={options} placeholder="To:" />
+        <small className="SmallText">Where are you going to</small>
+        <div>
+          <button
+            onClick={handleNext}
+            disabled={isNextDisabled}
+            class="btn btn-light "
+          >
+            Next
+          </button>
+          <button
+            onClick={handleBack}
+            disabled={isBackDisabled}
+            class="btn btn-light "
+          >
+            Back
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  function BusSelection({ handleNext, handleBack }) {
+    return (
       <div>
         <Select className="Drop" options={options} placeholder="Select bus" />
         <small className="SmallText">
           Select a bus from the available ones
         </small>
+        <div>
+          <button
+            onClick={handleNext}
+            disabled={isNextDisabled}
+            class="btn btn-light "
+          >
+            Next
+          </button>
+          <button
+            onClick={handleBack}
+            disabled={isBackDisabled}
+            class="btn btn-light "
+          >
+            Back
+          </button>
+        </div>
       </div>
-      <br />
-      <br />
+    );
+  }
+
+  function PaymentMethod({ handleNext, handleBack }) {
+    return (
       <div>
-        <button class="btn btn-light ">
-          Next
-        </button>
+        <Select
+          className="Drop"
+          options={options}
+          placeholder="Confirm payment"
+        />
+        <small className="SmallText">Select a payment method</small>
+        <div>
+          <button
+            onClick={handleNext}
+            disabled={isNextDisabled}
+            class="btn btn-light "
+          >
+            Next
+          </button>
+          <button
+            onClick={handleBack}
+            disabled={isBackDisabled}
+            class="btn btn-light "
+          >
+            Back
+          </button>
+        </div>
       </div>
+    );
+  }
+
+  return (
+    <div>
+      {/* <div className="ImgA">
+        <img className="Img" src={Img}alt="Bus" />
+      </div> */}
+      <div>
+        {currentStep === 1 && (
+          <From handleNext={handleNext} handleBack={handleBack} />
+        )}
+        {currentStep === 2 && (
+          <WhereTo handleNext={handleNext} handleBack={handleBack} />
+        )}
+        {currentStep === 3 && (
+          <BusSelection handleNext={handleNext} handleBack={handleBack} />
+        )}
+        {currentStep === 4 && (
+          <PaymentMethod handleNext={handleNext} handleBack={handleBack} />
+        )}
+      </div>
+      <br />
+      <br />
       <div className="ParentDiv">
         <h2 className="TextA">The Booking Process</h2>
         <div className="Card">
@@ -57,7 +193,6 @@ const Landing = () => {
           </p>
         </div>
       </div>
-
       <div className="Below">
         <p>
           <h2 className="Text">What we do</h2>
@@ -70,11 +205,10 @@ const Landing = () => {
         </ul>
       </div>
       <footer className="Foot">
-        <ul >
+        <ul>
           <li>Routes</li>
           <li>About us</li>
           <li>Contact us</li>
-          <li>Feedback</li>
         </ul>
       </footer>
     </div>
