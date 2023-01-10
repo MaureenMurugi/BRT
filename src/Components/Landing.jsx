@@ -43,18 +43,18 @@ const Landing = () => {
         <small className="SmallText">Where are you coming from</small>
         <div>
           <button
-            onClick={handleNext}
-            disabled={isNextDisabled}
-            class="btn btn-light "
-          >
-            Next
-          </button>
-          <button
             onClick={handleBack}
             disabled={isBackDisabled}
             class="btn btn-light "
           >
             Back
+          </button>
+          <button
+            onClick={handleNext}
+            disabled={isNextDisabled}
+            class="btn btn-light "
+          >
+            Next
           </button>
         </div>
       </div>
@@ -68,18 +68,18 @@ const Landing = () => {
         <small className="SmallText">Where are you going to</small>
         <div>
           <button
-            onClick={handleNext}
-            disabled={isNextDisabled}
-            class="btn btn-light "
-          >
-            Next
-          </button>
-          <button
             onClick={handleBack}
             disabled={isBackDisabled}
             class="btn btn-light "
           >
             Back
+          </button>
+          <button
+            onClick={handleNext}
+            disabled={isNextDisabled}
+            class="btn btn-light "
+          >
+            Next
           </button>
         </div>
       </div>
@@ -95,18 +95,18 @@ const Landing = () => {
         </small>
         <div>
           <button
-            onClick={handleNext}
-            disabled={isNextDisabled}
-            class="btn btn-light "
-          >
-            Next
-          </button>
-          <button
             onClick={handleBack}
             disabled={isBackDisabled}
             class="btn btn-light "
           >
             Back
+          </button>
+          <button
+            onClick={handleNext}
+            disabled={isNextDisabled}
+            class="btn btn-light "
+          >
+            Next
           </button>
         </div>
       </div>
@@ -124,18 +124,18 @@ const Landing = () => {
         <small className="SmallText">Select a payment method</small>
         <div>
           <button
-            onClick={handleNext}
-            disabled={isNextDisabled}
-            class="btn btn-light "
-          >
-            Next
-          </button>
-          <button
             onClick={handleBack}
             disabled={isBackDisabled}
             class="btn btn-light "
           >
             Back
+          </button>
+          <button
+            onClick={handleNext}
+            disabled={isNextDisabled}
+            class="btn btn-light "
+          >
+            Next
           </button>
         </div>
       </div>
@@ -144,9 +144,6 @@ const Landing = () => {
 
   return (
     <div>
-      {/* <div className="ImgA">
-        <img className="Img" src={Img}alt="Bus" />
-      </div> */}
       <div>
         {currentStep === 1 && (
           <From handleNext={handleNext} handleBack={handleBack} />
@@ -189,7 +186,8 @@ const Landing = () => {
             Select book if you are satisfied with the info you see. Wait for a
             notification for arrival of your bus.
             <br />
-            ** Travel safe and enjoy!**
+            <br />
+            <small className="text">**Safe Travels!**</small>
           </p>
         </div>
       </div>
