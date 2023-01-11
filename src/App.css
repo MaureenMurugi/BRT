@@ -151,6 +151,7 @@
   color: #0c3d00 !important;
   border: 1px solid rgb(15, 185, 13) !important;
   margin: 8px;
+  width: 80px;
 }
 
 .text {
@@ -164,10 +165,27 @@
   text-align: start;
   position: absolute;
   left: 50%;
+  text-emphasis: bold;
 }
 
 .form-group {
   padding: 10px;
+  width: 300px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  position: relative;
+  left: 44%;
+  top: 100px;
+}
+.form-control {
+  align-self: center;
+}
+
+.btn-success {
+  position: relative;
+  left: 44%;
+  top: 100px;
   width: 300px;
 }
 
@@ -187,6 +205,12 @@
   height: 100%;
 }
 
-.buttn{
-   padding-top: 25px;
+.buttn {
+  padding-top: 25px;
 }
+
+.singuptxt {
+  color: #18d008;
+}
+
+
