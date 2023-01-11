@@ -77,7 +77,7 @@
   right: 1%;
 }
 .Below {
-  position: relative;
+  position: absolute;
   top: 70%;
 }
 
@@ -97,7 +97,7 @@
 .TextA {
   text-decoration: underline #18d008;
   position: absolute;
-  top: 30%;
+  top: 35%;
   text-align: start;
 }
 .ParentDiv {
@@ -105,7 +105,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50vh;
+  height: 53vh;
 }
 
 .Card {
@@ -158,7 +158,7 @@
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.Textaa{
+.Textaa {
   color: #18d008;
   display: flex;
   text-align: start;
@@ -166,17 +166,27 @@
   left: 50%;
 }
 
-.form-group{
- 
-   padding: 10px;
+.form-group {
+  padding: 10px;
   width: 300px;
 }
 
-.Head{
+.Head {
   color: #0c3d00;
 }
 
-.img{
-  display: grid;
-   
+.img {
+  position: absolute;
+  padding-left: 25%;
+}
+
+.img-tag {
+  top: 0;
+  padding-left: 60%;
+  width: 1200px;
+  height: 100%;
+}
+
+.buttn{
+   padding-top: 25px;
 }

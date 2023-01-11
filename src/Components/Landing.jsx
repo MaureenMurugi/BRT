@@ -41,7 +41,7 @@ const Landing = () => {
       <div>
         <Select className="Drop" options={options} placeholder="From:" />
         <small className="SmallText">Where are you coming from</small>
-        <div>
+        <div className="buttn">
           <button
             onClick={handleBack}
             disabled={isBackDisabled}
@@ -66,7 +66,7 @@ const Landing = () => {
       <div>
         <Select className="Drop" options={options} placeholder="To:" />
         <small className="SmallText">Where are you going to</small>
-        <div>
+        <div className="buttn">
           <button
             onClick={handleBack}
             disabled={isBackDisabled}
@@ -93,7 +93,7 @@ const Landing = () => {
         <small className="SmallText">
           Select a bus from the available ones
         </small>
-        <div>
+        <div className="buttn">
           <button
             onClick={handleBack}
             disabled={isBackDisabled}
@@ -123,7 +123,7 @@ const Landing = () => {
           placeholder="Confirm payment"
         />
         <small className="SmallText">Select a payment method</small>
-        <div>
+        <div className="buttn">
           <button
             onClick={handleBack}
             disabled={isBackDisabled}
