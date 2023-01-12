@@ -15,9 +15,13 @@ function AboutUs() {
         </div>
         <h2>Who We Work With</h2>
         <h2>Our Mission</h2>
-        <li>To serve you how we know best.</li>
+        <ul>
+            <li>To serve you how we know best.</li>
+        </ul>
         <h2>Our Vision</h2>
-        <li>Provide our services to all towns by 2025.</li>
+        <ul>
+            <li>Provide our services to all towns by 2025.</li>
+        </ul>
     </div>
   )
 }
