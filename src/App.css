@@ -132,16 +132,29 @@
 
 .Drop {
   font-size: 16px;
-  border: 1px solid rgb(15, 185, 13);
+  /* border: 1px solid rgba(0, 0, 0, 0.25); */
   border-radius: 5px;
   width: 200px;
   position: relative;
   left: 23px;
   background-color: #18d008;
   padding: 1px;
+
 }
+
+.Drop1 {
+  display: inline-block;
+  position: relative;
+  padding-left: 2px;
+  padding-right: 2px;
+  width: 200px;
+  left: 23px;
+  border: #18d008;
+  
+}
+
 .SmallText {
-  padding: 20px;
+  padding: 27px;
   color: gray !important;
 }
 
@@ -165,11 +178,11 @@
   text-align: start;
   position: absolute;
   left: 50%;
-  text-emphasis: bold;
+  font-weight: bolder;
 }
 
 .form-group {
-  padding: 10px;
+  padding: 15px;
   width: 300px;
   display: grid;
   grid-template-columns: 1fr;
@@ -214,3 +227,25 @@
 }
 
 
+.text11{
+  position: absolute;
+  bottom: 1px;
+  text-align: start;
+  right: 50%;
+}
+
+.form{
+   position: relative;
+   top: 1px;
+}
+
+.singuptxt1{
+  position: relative;
+  left: 25px;
+  font-weight: bold;
+  white-space: normal;
+  color: #18d008;
+    overflow-wrap: break-word;
+    text-align: center;
+    bottom: 35px;
+}
