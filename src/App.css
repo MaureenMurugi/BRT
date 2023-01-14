@@ -150,7 +150,7 @@
   width: 200px;
   left: 23px;
   border: #18d008;
-  
+
 }
 
 .SmallText {
@@ -248,4 +248,22 @@
     overflow-wrap: break-word;
     text-align: center;
     bottom: 35px;
+}
+
+.auth-errors-wrapper{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 20px;
+}
+.auth-errors{
+  width:300px;
+  border:1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 20px;
+  display: block;
 }
