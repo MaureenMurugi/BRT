@@ -257,13 +257,4 @@
   position: fixed;
   top: 20px;
 }
-.auth-errors{
-  width:300px;
-  border:1px solid red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border-radius: 20px;
-  display: block;
-}
+
