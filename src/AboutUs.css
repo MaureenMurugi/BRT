@@ -55,6 +55,7 @@ p {
   opacity: 0.9;
   transition-duration: 0.5s;
   transform:scale(1.2)
+  
 }
 
 .image-container img {
