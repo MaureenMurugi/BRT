@@ -1,19 +1,33 @@
-
-
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
 
 const Signup = () => {
   const navigate = useNavigate();
 
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [error, setError] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordLengthError, setPasswordLengthError] = useState("");
+
+ const passwordRegex = new RegExp(/^.{8,20}$/);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isSignedIn === true) {
       return navigate("/landing");
+    }
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+    }
+    if (!passwordRegex.test(password)) {
+      setPasswordLengthError(
+        alert('Weak password. Password must be between 8 and 20 characters long.')
+      );
+      return;
     }
 
     fetch("http://127.0.0.1:3000/users", {
@@ -47,10 +61,12 @@ const Signup = () => {
 
   return (
     <div>
-      <div className="singuptxt11">
+      <div className="img">
+        <img className="img-tag" src={Img} alt={Img} />
       </div>
+      <div className="singuptxt11"></div>
       <div>
-        <h3 className="Textaa">Sign Up</h3>
+        <h3 className="Textaa1">Sign Up</h3>
       </div>
       <div className="Parent1">
         <form className="form" onSubmit={handleSubmit}>
@@ -74,12 +90,12 @@ const Signup = () => {
               placeholder="Enter phone number"
               required
             />
-
           </div>
           <div className="form-group">
             <label htmlFor="exampleInputPassword1">Password</label>
             <input
               type="password"
+              onChange={(e) => setPassword(e.target.value)}
               className="form-control"
               id="exampleInputPassword1"
               placeholder="Password"
@@ -97,6 +113,7 @@ const Signup = () => {
             <input
               type="password"
               className="form-control"
+              onChange={(e) => setConfirmPassword(e.target.value)}
               id="exampleInputPassword2"
               placeholder="Confirm Password"
               name="confirmPassword"
@@ -107,8 +124,19 @@ const Signup = () => {
                 Re-enter the password
               </span>
             </div>
+            <br />
+            <br />
+            <p>
+              Already have an account ?
+              <Link className="singuptxt" to="/loginuser">
+                Login here
+              </Link>
+            </p>
           </div>
-          <input type="submit" className="btn btn-success"></input>
+          {passwordLengthError && <p>{passwordLengthError}</p>}
+          <button type="submit" class="btn btn-success">
+            Sing up
+          </button>
         </form>
       </div>
     </div>

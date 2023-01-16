@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
-
-const Login = () => {
+const LoginUser = () => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -33,19 +31,19 @@ const Login = () => {
         password: password,
       }),
     })
-    .then((response) => {
-      if (response.ok) {
-        setIsLoggedIn(true);
-        return response.json();
-      }
-      throw new Error('Phone number or password is invalid');
-    })
-    .then(console.log)
-    .catch(console.log);
-    
-     if (isLoggedIn === true) {
-       return navigate("/adminside");
-     }
+      .then((response) => {
+        if (response.ok) {
+          setIsLoggedIn(true);
+          return response.json();
+        }
+        throw new Error("Phone number or password is invalid");
+      })
+      .then(console.log)
+      .catch(console.log);
+
+    if (isLoggedIn === true) {
+      return navigate("/landing");
+    }
     setIsLoggedIn(true);
   };
 
@@ -55,17 +53,16 @@ const Login = () => {
         <img className="img-tag" src={Img} alt={Img} />
       </div>
       <div>
-        <h3 className="Textaa">Login As n Admin</h3>
+        <h3 className="Textaa1">Login </h3>
       </div>
 
       <div className="Parent1">
-
         <form className="form">
           <div class="form-group">
             <label>Phone number</label>
+  
             <input
               type="number"
-
               class="form-control"
               placeholder="Enter phone number"
               required
@@ -73,9 +70,11 @@ const Login = () => {
               onChange={(e) => setPhoneNumber(e.target.value)}
               autoFocus="yes"
             />
+            <br />
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
+      
             <input
               type="password"
               // onChange={handleChange}
@@ -86,21 +85,20 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            <br />
             <div class="col-auto">
               <span id="passwordHelpInline" class="SmallText">
                 Must be 8-20 characters long
               </span>
             </div>
-
           </div>
-          <button  type="submit" class="btn btn-success">
+          <button type="submit" class="btn btn-success">
             Log in
           </button>
-          
         </form>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default LoginUser;

@@ -10,13 +10,14 @@ import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Landing = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [isNextDisabled, setIsNextDisabled] = useState(false);
   const [isBackDisabled, setIsBackDisabled] = useState(false);
   const [selectedOptionFrom, setSelectedOptionFrom] = useState("");
   const [selectedOptionTo, setSelectedOptionTo] = useState("");
   const [selectedOptionBus, setSelectedOptionBus] = useState("");
+
   const [data, setData] = useState([]);
   const [toData, setToData] = useState([]);
 
@@ -40,9 +41,22 @@ const Landing = () => {
     setCurrentStep(currentStep - 1);
     setIsBackDisabled(false);
   }
-    function handleNextButton() {
-      navigate("/paces");
-    }
+
+
+  function handleNextButton() {
+        if (!selectedOptionFrom || !selectedOptionTo || !selectedOptionBus) {
+          alert("Please select a value for From, To, and Bus.");
+          return;
+        }
+     navigate("/places", {
+       state: {
+         from: selectedOptionFrom,
+         to: selectedOptionTo,
+         bus: selectedOptionBus,
+         username: "John Doe",
+       },
+     });
+  }
 
 
   function From({ handleNext, handleBack }) {
@@ -60,19 +74,23 @@ const Landing = () => {
         .then((response) => response.json())
         .then((data) => setData([...data]));
     }, []);
-
     const options = [];
-
     data.map((item) =>
-      options.push({ value: item.station_name, label: item.station_name })
+      options.push({
+        value: item.station_name,
+        label: item.station_name + item.fare,
+        price: item.fare,
+      })
     );
-
+    console.log(options);
     const optionsTo = [];
-
     toData.map((item) =>
-      optionsTo.push({ value: item.station_name, label: item.station_name })
+      optionsTo.push({
+        value: item.station_name,
+        label: item.station_name + item.fare,
+        price: item.fare,
+      })
     );
-
     return (
       <div>
         <div></div>
@@ -84,14 +102,8 @@ const Landing = () => {
           options={options}
           placeholder="From"
         >
-          {data.map((item) => (
-            <option key={item.id} value={item.id}>
-              {item.station_name} {item.fare}
-            </option>
-          ))}
         </Select>
-        <small className="SmallText">Select pick up  point</small>
-
+        <small className="SmallText">Select pick up point</small>
         <Select
           value={selectedOptionTo}
           onChange={setSelectedOptionTo}
@@ -99,11 +111,6 @@ const Landing = () => {
           options={optionsTo}
           placeholder="To"
         >
-          {toData.map((item) => (
-            <option key={item.id} value={item.id}>
-              {item.station_name}
-            </option>
-          ))}
         </Select>
         <small className="SmallText">Select destination</small>
         <div className="buttn">
@@ -134,38 +141,32 @@ const Landing = () => {
         return;
       }
       fetch(
-        "http://127.0.0.1:3000/buses?from" +
+        "http://127.0.0.1:3000/buses?from=" +
           selectedOptionFrom +
           "&to=" +
           selectedOptionTo
       )
         .then((response) => response.json())
         .then((data) => setBuses([...data]));
-    }, [selectedOptionFrom, selectedOptionTo]);
-
+    }, []);
     const options = [];
-
-    buses.map((item) => options.push({ value: item.name, label: item.name }));
-
+    buses.map((item) =>
+      options.push({
+        value: item.bus_name + item.time,
+        label: item.bus_name + item.time ,
+      })
+    );
+    console.log(options);
     return (
       <div>
         <Select
-          onChange={selectedOptionBus}
-          value={setSelectedOptionBus}
+          onChange={setSelectedOptionBus}
+          value={selectedOptionBus}
           className="Drop"
           data={data}
           options={options}
           placeholder="Select a bus"
-        >
-          {data.map((item) => (
-            <option key={item.id} value={item.name}>
-              <h4>{item.name}</h4> <h4>{item.seater}</h4>
-              <h4>{item.passengers}</h4> <h4>{item.status}</h4>
-              <h4>{item.from}</h4> <h4>{item.to}</h4>
-              <h4>{item.time}</h4>
-            </option>
-          ))}
-        </Select>
+        ></Select>
         <small className="SmallText">
           Select a bus from the available ones
         </small>
@@ -182,17 +183,18 @@ const Landing = () => {
             disabled={isNextDisabled}
             class="btn btn-light "
           >
-            Next
+            Pay
           </button>
         </div>
       </div>
     );
   }
-
   function PaymentMethod({ handleNext, handleBack }) {
     return (
       <div>
-        <Select className="Drop" data={data} placeholder="Confirm payment" />
+        <Select className="Drop" data={data} placeholder="Confirm payment" >
+          Pay Via Mpesa
+        </Select>
         <small className="SmallText">Select a payment method</small>
         <div className="buttn">
           <button
@@ -203,11 +205,11 @@ const Landing = () => {
             Back
           </button>
           <button
-            onClick={handleNext}
+            onClick={handleNextButton}
             disabled={isNextDisabled}
             class="btn btn-light "
           >
-            Next
+            Pay
           </button>
         </div>
       </div>
