@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,24 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.about {
+  position: relative;
+}
+
+.header {
+  position: relative;
+  text-align: center;
+  color: #053D00;
+}
+
+.ul {
+  list-style-position: inside;
+  text-align: justify;
+  text-indent: 175px;
+}
+
+p {
+  text-align: center;
 }
