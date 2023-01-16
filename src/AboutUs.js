@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import './AboutUs.css'
 
 function AboutUs() {
   return (
@@ -73,7 +73,7 @@ function AboutUs() {
           <h2 className='header'>Our Vision</h2>
           <img src='https://imgs.search.brave.com/UpmTnxRTInj6onfb1jv6wNiwkc6NVPeTn9L-VSQuh8k/rs:fit:1164:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5x/bnljZ0FvYUFMRVl0/UWZsd21UaDVBSGFE/QiZwaWQ9QXBp'
             alt='vision'
-            id='midpo' 
+            id='midpo'   
            />
           <p>Partner with all local bus service providers and provide our services to all towns by 2025.</p>
         </div>

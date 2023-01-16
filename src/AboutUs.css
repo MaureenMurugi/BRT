@@ -1,0 +1,39 @@
+.about {
+    margin: 0;
+    position: relative;
+  }
+  
+  .header {
+    position: relative;
+    text-align: center;
+    color: #053D00;
+  }
+  
+  .header:hover {
+    transform:scale(1.5);
+    transition-duration: 1.5s;
+  }
+  
+  .ul {
+    list-style-position: inside;
+    text-align: justify;
+    text-indent: 175px;
+  }
+  
+  p {
+    text-align: center;
+  }
+  
+  #midpo {
+    width: auto;
+    padding: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  
+  #midpo:hover {
+    opacity: 0.9;
+    transition-duration: 1.5s;
+    transform:scale(1.2)
+  }
