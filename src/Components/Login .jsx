@@ -1,58 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
 
 const Login = () => {
-
-
   const navigate = useNavigate();
-  // const [error, setError] = use
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState({
+    phoneNumber: "",
+    password: "",
+  });
 
   const handleSubmit = (e) => {
-
-    const { error } = this.state;
-    if (error.phonenumber || error.password) {
-        alert("Please fill all the required fields");
+    e.preventDefault();
+    if (!phoneNumber || !password) {
+      setError({
+        phoneNumber: !phoneNumber ? "Phone number is required" : "",
+        password: !password ? "Password is required" : "",
+      });
+      return;
     }
-    // Perform login logic here
+    fetch("http://127.0.0.1:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        phoneNumber: phoneNumber,
+        password: password,
+      }),
+    })
+    .then((response) => {
+      if (response.ok) {
+        setIsLoggedIn(true);
+        return response.json();
+      }
+      throw new Error('Phone number or password is invalid');
+    })
+    .then(console.log)
+    .catch(console.log);
+    
+     if (isLoggedIn === true) {
+       return navigate("/landing");
+     }
     setIsLoggedIn(true);
   };
-
-  if (isLoggedIn) {
-    return navigate('/landing')
-  } else if (isLoggedIn === false) {
-    // return console.error("Phone number or password is invalid");
-  }
-  
-
-   function handleChange(event) {
-     const { name, value } = event.target;
-     this.setState({ [name]: value });
-
-     if (!value) {
-       this.setState((prevState) => ({
-         ...prevState,
-         error: {
-           ...prevState.error,
-           [name]: "This field is required",
-         },
-       }));
-     } else {
-       this.setState((prevState) => ({
-         ...prevState,
-         error: {
-           ...prevState.error,
-           [name]: "",
-         },
-       }));
-     }
-   }
-  
-
 
   return (
     <div>
@@ -64,29 +59,31 @@ const Login = () => {
       </div>
 
       <div className="Parent1">
-        {/* <form onSubmit={handleLogin}> */}
+
         <form className="form">
           <div class="form-group">
             <label>Phone number</label>
             <input
               type="number"
-              onChange={handleChange}
+
               class="form-control"
               placeholder="Enter phone number"
               required
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
               autoFocus="yes"
             />
-            {/* <small className="SmallText">Enter your phone number</small> */}
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
             <input
               type="password"
-              onChange={handleChange}
               class="form-control"
               id="exampleInputPassword1"
               placeholder="Password"
               required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <div class="col-auto">
               <span id="passwordHelpInline" class="SmallText">
@@ -102,9 +99,10 @@ const Login = () => {
               </Link>
             </p>
           </div>
-          <button onClick={handleSubmit} type="submit" class="btn btn-success">
+          <button  type="submit" class="btn btn-success">
             Log in
           </button>
+          
         </form>
       </div>
     </div>
