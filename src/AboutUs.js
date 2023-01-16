@@ -10,7 +10,7 @@ function AboutUs() {
         <div className='do'>
             <h2 className='header'>Reinventing Public Transportation</h2>
             <div>
-              <p>The BRT System Application aims at making transport information and travelling services affordable and convenient for all.The BRT System is designed to provide clients with realtime service information, being fully committed to serving you 24/7 making public transport more effecient and convenient.</p>
+              <p>With the prevailing drawbacks in the public transport system, the BRT System Application aims at availing transport information and travelling services affordable and convenient for all. In a few easy clicks, the BRT System is designed to provide clients with realtime service information. Being fully committed to servcing all 24/7, The BRT Systems envisions making public transport more effecient and convenient.</p>
             </div>
             <h2 className='header'>What we do</h2>
             <div className='ul'>
@@ -25,19 +25,31 @@ function AboutUs() {
 
         <div className='partners'>
           <h2 className='header'>Who We Work With</h2>
-          <div>
-            <iframe 
-            src='' 
-            title='molo'
-            ></iframe>
-            <iframe
-            src=''
-            title='ena'
-            ></iframe>
-            <iframe
-            src=''
-            title='modern'
-            ></iframe>
+          <div className='image-container'>
+            <img
+            src='https://prestigeplaza.co.ke/wp-content/uploads/2017/10/Modern-Coast.png'
+            alt='moderncoast'/>
+            <img
+            src='https://netstorage-tuko.akamaized.net/images/696d7a146971366d.jpg?imwidth=900'
+            alt='prestige'/>
+            <img
+            src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOL52fn99kojInQJeG9Pwf_PwfYHYZMyY0PXdXq6kqKB2N_u2ElcPCbibjjCEzdPvJyk8&usqp=CAU'
+            alt='2nk'/>
+            <img
+            src='https://media.glassdoor.com/sqll/4649165/the-guardian-coach-squarelogo-1628185856998.png'
+            alt='guardian'/>
+            <img
+            src='https://iabiri.com/assets/logo/ena.png'
+            alt='ena'/>
+            <img
+            src='https://www.businesslist.co.ke/img/ke/d/1592235947-45-mololine-services-ltd.jpg'
+            alt='mololine'/>
+            <img
+            src='https://lh3.googleusercontent.com/p/AF1QipPdULfOIy7pOWIrMOgwURSQOlYBv6A1scB9ndCu=w1080-h608-p-no-v0'
+            alt='kangaroo' />
+            <img
+            src='https://keonline.fra1.cdn.digitaloceanspaces.com/uploads/logo/MezCFlDtpC2sVfdw85TeVT0n5GDXSZtZ9IWhUqOP.jpg'
+            alt='easycoach'/>            
           </div>
         </div>
         {/*  */}
@@ -50,7 +62,7 @@ function AboutUs() {
           <p>To serve you how we know best.</p>
         </div>
         {/*  */}
-        <div>
+        <div className='container'>
           <h2 className='header'>Our Core Values</h2>
           <h3 className='header'>Integrity</h3>
           <img src='https://imgs.search.brave.com/hbgpgWA7EdaMAbDJkivJOQDspBBWm_3fEmkNfiuHZuc/rs:fit:715:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5z/T0lndEFtTHB2WjVB/NUhlWFpKVndnSGFF/NiZwaWQ9QXBp'
