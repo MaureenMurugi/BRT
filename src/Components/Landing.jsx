@@ -1,6 +1,7 @@
 import React from "react";
 import Select from "react-select";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
@@ -9,16 +10,23 @@ import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Landing = () => {
- 
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [isNextDisabled, setIsNextDisabled] = useState(false);
   const [isBackDisabled, setIsBackDisabled] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("");
-   const [data, setData] = useState([]);
+  const [selectedOptionFrom, setSelectedOptionFrom] = useState("");
+  const [selectedOptionTo, setSelectedOptionTo] = useState("");
+  const [selectedOptionBus, setSelectedOptionBus] = useState("");
+
+  const [data, setData] = useState([]);
+  const [toData, setToData] = useState([]);
+
+  const [buses, setBuses] = useState([]);
 
   function handleNext() {
     if (currentStep === 3) {
       isNextDisabled(true);
+
       return;
     }
     setCurrentStep(currentStep + 1);
@@ -34,31 +42,77 @@ const Landing = () => {
     setIsBackDisabled(false);
   }
 
-  function From({ handleNext, handleBack }) {
 
-    useEffect(() => {  
+  function handleNextButton() {
+        if (!selectedOptionFrom || !selectedOptionTo || !selectedOptionBus) {
+          alert("Please select a value for From, To, and Bus.");
+          return;
+        }
+     navigate("/places", {
+       state: {
+         from: selectedOptionFrom,
+         to: selectedOptionTo,
+         bus: selectedOptionBus,
+         username: "John Doe",
+       },
+     });
+  }
+
+
+  function From({ handleNext, handleBack }) {
+    useEffect(() => {
+      if (data.length > 0) {
+        if (toData.length > 0) {
+          return;
+        }
+        const to = data.filter(
+          (item) => item.station_name !== selectedOptionFrom
+        );
+        setToData([...to]);
+      }
       fetch("http://127.0.0.1:3000/stations")
         .then((response) => response.json())
-        .then((data) => setData(data));
+        .then((data) => setData([...data]));
     }, []);
-
+    const options = [];
+    data.map((item) =>
+      options.push({
+        value: item.station_name,
+        label: item.station_name + item.fare,
+        price: item.fare,
+      })
+    );
+    console.log(options);
+    const optionsTo = [];
+    toData.map((item) =>
+      optionsTo.push({
+        value: item.station_name,
+        label: item.station_name + item.fare,
+        price: item.fare,
+      })
+    );
     return (
       <div>
         <div></div>
         <Select
-          value={selectedOption}
-          onChange={(e) => setSelectedOption(e.target.value)}
+          value={selectedOptionFrom}
+          defaultValue={selectedOptionFrom}
+          onChange={setSelectedOptionFrom}
           className="Drop"
-          options={data}
-          placeholder="From:"
+          options={options}
+          placeholder="From"
         >
-          {data.map((item) => (
-            <option key={item.id} value={item.name}>
-              <h4>{item.name} {item.fare}</h4>
-            </option>
-          ))}
         </Select>
-        <small className="SmallText">Where are you coming from</small>
+        <small className="SmallText">Select pick up point</small>
+        <Select
+          value={selectedOptionTo}
+          onChange={setSelectedOptionTo}
+          className="Drop"
+          options={optionsTo}
+          placeholder="To"
+        >
+        </Select>
+        <small className="SmallText">Select destination</small>
         <div className="buttn">
           <button
             onClick={handleBack}
@@ -78,58 +132,41 @@ const Landing = () => {
       </div>
     );
   }
-
-  // function WhereTo({ handleNext, handleBack }) {
-  //   return (
-  //     <div>
-  //       <Select className="Drop" options={data} placeholder="To:" />
-  //       <small className="SmallText">Where are you going to</small>
-  //       <div className="buttn">
-  //         <button
-  //           onClick={handleBack}
-  //           disabled={isBackDisabled}
-  //           class="btn btn-light "
-  //         >
-  //           Back
-  //         </button>
-  //         <button
-  //           onClick={handleNext}
-  //           disabled={isNextDisabled}
-  //           class="btn btn-light "
-  //         >
-  //           Next
-  //         </button>
-  //       </div>
-  //     </div>
-  //   );
-  // }
-
   function BusSelection({ handleNext, handleBack }) {
-    
     useEffect(() => {
-      fetch("http://127.0.0.1:3000/buses")
+      if (selectedOptionFrom === "" || selectedOptionTo === "") {
+        return handleBack();
+      }
+      if (buses.length > 0) {
+        return;
+      }
+      fetch(
+        "http://127.0.0.1:3000/buses?from=" +
+          selectedOptionFrom +
+          "&to=" +
+          selectedOptionTo
+      )
         .then((response) => response.json())
-        .then((data) => setData(data));
+        .then((data) => setBuses([...data]));
     }, []);
-
-    
+    const options = [];
+    buses.map((item) =>
+      options.push({
+        value: item.bus_name + item.time,
+        label: item.bus_name + item.time ,
+      })
+    );
+    console.log(options);
     return (
       <div>
         <Select
-          onChange={(e) => setSelectedOption(e.target.value)}
+          onChange={setSelectedOptionBus}
+          value={selectedOptionBus}
           className="Drop"
           data={data}
+          options={options}
           placeholder="Select a bus"
-        >
-          {data.map((item) => (
-            <option key={item.id} value={item.name}>
-              <h4>{item.name}</h4> <h4>{item.seater}</h4>
-              <h4>{item.passengers}</h4> <h4>{item.status}</h4>
-              <h4>{item.from}</h4> <h4>{item.to}</h4>
-              <h4>{item.time}</h4>
-            </option>
-          ))}
-        </Select>
+        ></Select>
         <small className="SmallText">
           Select a bus from the available ones
         </small>
@@ -142,27 +179,22 @@ const Landing = () => {
             Back
           </button>
           <button
-            onClick={handleNext}
+            onClick={handleNextButton}
             disabled={isNextDisabled}
             class="btn btn-light "
           >
-            Next
+            Pay
           </button>
         </div>
       </div>
     );
   }
-
   function PaymentMethod({ handleNext, handleBack }) {
     return (
       <div>
-        <Select
-          // onChange={handleChange}
-          // value={selectedOption}
-          className="Drop"
-          data={data}
-          placeholder="Confirm payment"
-        />
+        <Select className="Drop" data={data} placeholder="Confirm payment" >
+          Pay Via Mpesa
+        </Select>
         <small className="SmallText">Select a payment method</small>
         <div className="buttn">
           <button
@@ -173,11 +205,11 @@ const Landing = () => {
             Back
           </button>
           <button
-            onClick={handleNext}
+            onClick={handleNextButton}
             disabled={isNextDisabled}
             class="btn btn-light "
           >
-            Next
+            Pay
           </button>
         </div>
       </div>
@@ -193,9 +225,7 @@ const Landing = () => {
         {currentStep === 1 && (
           <From handleNext={handleNext} handleBack={handleBack} />
         )}
-        {/* {currentStep === 2 && (
-          <WhereTo handleNext={handleNext} handleBack={handleBack} />
-        )} */}
+
         {currentStep === 2 && (
           <BusSelection handleNext={handleNext} handleBack={handleBack} />
         )}

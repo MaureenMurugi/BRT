@@ -1,0 +1,16 @@
+{
+  "stations": [
+    {
+      "station_name":"CBD - Alssops",
+      "fare": 30
+    },
+    {
+      "station_name":"CBD - Alssops",
+      "fare": 70
+    },
+    {
+      "station_name": "CBD - Alssops",
+      "fare": 50
+    }
+  ]
+}

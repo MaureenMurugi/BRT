@@ -14,7 +14,7 @@ const Navbar = () => {
         </li>
         <li>
           <CustomLink to="/login" className="NavLinksa">
-            Login
+            Admin LogIn
           </CustomLink>
         </li>
         <li>

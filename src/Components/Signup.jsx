@@ -1,209 +1,142 @@
 import React from "react";
-import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
 
 const Signup = () => {
   const navigate = useNavigate();
 
-  // class MyComponent extends React.Component {
-  //   constructor(props) {
-  //     super(props);
-  //     this.state = {
-  //       password: "",
-  //       confirmPassword: "",
-  //     };
-  //   }
-  //   // ...
-  // }
-
   const [isSignedIn, setIsSignedIn] = useState(false);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState({});
-  const [formData, setFormData] = useState({
-    name: "",
-    number: [],
-    password: "",
-    confirmpassword: "",
-  });
+  const [error, setError] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordLengthError, setPasswordLengthError] = useState("");
+
+ const passwordRegex = new RegExp(/^.{8,20}$/);
 
   const handleSubmit = (e) => {
-    // const { error } = this.state;
+    e.preventDefault();
     if (isSignedIn === true) {
       return navigate("/landing");
-    } else {
-      // if (
-      //   formData.name === "" ||
-      //   formData.number === "" ||
-      //   formData.password === "" ||
-      //   formData.confirmpassword === ""
-      // ) {
-      //   alert("All input fields are required");
-      // }
-      const { password, confirmPassword } = this.state;
-      if (password !== confirmPassword) {
-        alert("Passwords do not match");
-      } else {
-      }
     }
-    e.preventDefault();
-    setData({ ...data, [e.target.name]: e.target.value });
-    if (
-      e.target.password.value.length < 8 ||
-      e.target.password.value.length > 20
-    ) {
-      setError("Password must be at least 8 - 20 characters");
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+    }
+    if (!passwordRegex.test(password)) {
+      setPasswordLengthError(
+        alert('Weak password. Password must be between 8 and 20 characters long.')
+      );
       return;
     }
-    setIsSignedIn(true);
-  };
 
-    // const handleChange = (e) => {
-    //   setFormData({
-    //     ...formData,
-    //     [e.target.name]: e.target.value,
-    //   });
-    // };
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-    this.setState({ [name]: value });
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-
-    if (!value) {
-      this.setState((prevState) => ({
-        ...prevState,
-        error: {
-          ...prevState.error,
-          [name]: "This field is required",
-        },
-      }));
-    } else {
-      this.setState((prevState) => ({
-        ...prevState,
-        error: {
-          ...prevState.error,
-          [name]: "",
-        },
-      }));
-    }
-  }
-
-  function signUp(username, phonenumber, password, confirmpassword) {
-    
     fetch("http://127.0.0.1:3000/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: username,
-        phonenumber: phonenumber,
-        password: password,
-        confirmpassword: confirmpassword,
+        username: e.target.name.value,
+        phonenumber: e.target.number.value,
+        password: e.target.password.value,
+        confirmpassword: e.target.confirmPassword.value,
       }),
     })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          return `${username} "you have successfully signed up"`;
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
         } else {
-          console.log("Error creating user:", data.error);
+          setError("Error creating user");
+          return null;
+        }
+      })
+      .then((data) => {
+        if (data) {
+          console.log(data);
+          setError(null);
         }
       });
-  }
+    setIsSignedIn(true);
+  };
 
   return (
     <div>
       <div className="img">
         <img className="img-tag" src={Img} alt={Img} />
       </div>
-      <div className="singuptxt11">
-        <p className="singuptxt1">
-          <h2 className="singuptxt1">Welcome to our Bus Transit System</h2>
-        </p>
-      </div>
+      <div className="singuptxt11"></div>
       <div>
-        <h3 className="Textaa">Sign Up</h3>
+        <h3 className="Textaa1">Sign Up</h3>
       </div>
       <div className="Parent1">
-        <form className="form">
-          <div class="form-group">
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="form-group">
             <label>Full name</label>
             <input
-              // value={formData.name}
               type="name"
               name="name"
-              class="form-control"
-              onChange={handleChange}
+              className="form-control"
               placeholder="Enter name"
               required
               autoFocus="yes"
             />
-            {/* {this.state.error.email && <p>{this.state.error.name}</p>} */}
-            {/* <small className="SmallText">Enter your full name</small> */}
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label>Phone number</label>
             <input
               name="number"
-              // value={formData.phonenumber}
               type="number"
-              class="form-control"
-              onChange={handleChange}
+              className="form-control"
               placeholder="Enter phone number"
               required
             />
-            {/* <small className="SmallText">Enter your phone number</small> */}
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1">Password</label>
             <input
               type="password"
-              class="form-control"
-              // value={formData.password}
-              onChange={handleChange}
+              onChange={(e) => setPassword(e.target.value)}
+              className="form-control"
               id="exampleInputPassword1"
               placeholder="Password"
-              name="Password"
+              name="password"
               required
             />
-            {/* {this.state.error.password && <p>{this.state.error.password}</p>} */}
-            <div class="col-auto">
-              <span id="passwordHelpInline" class="SmallText">
+            <div className="col-auto">
+              <span id="passwordHelpInline" className="SmallText">
                 Must be 8-20 characters long
               </span>
             </div>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Confirm Password</label>
+          <div className="form-group">
+            <label htmlFor="exampleInputPassword1">Confirm Password</label>
             <input
               type="password"
-              class="form-control"
-              // value={formData.confirmpassword}
-              onChange={handleChange}
-              id="exampleInputPassword1"
+              className="form-control"
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              id="exampleInputPassword2"
               placeholder="Confirm Password"
               name="confirmPassword"
               required
             />
-            <div class="col-auto">
-              <span id="passwordHelpInline" class="SmallText">
+            <div className="col-auto">
+              <span id="passwordHelpInline" className="SmallText">
                 Re-enter the password
               </span>
             </div>
-          </div>
-          <button onClick={handleSubmit} type="submit" class="btn btn-success">
-            Sign Up
-          </button>
-          {error && (
-            <p onClick={handleSubmit} className="error-message">
-              {error}
+            <br />
+            <br />
+            <p>
+              Already have an account ?
+              <Link className="singuptxt" to="/loginuser">
+                Login here
+              </Link>
             </p>
-          )}
+          </div>
+          {passwordLengthError && <p>{passwordLengthError}</p>}
+          <button type="submit" class="btn btn-success">
+            Sing up
+          </button>
         </form>
       </div>
     </div>
