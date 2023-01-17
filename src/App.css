@@ -262,12 +262,14 @@
 .Card11 {
   position: relative;
   left: 43%;
-    top: 100px;
+  top: 100px;
   width: 350px;
   height: 230px;
   border-radius: 5px;
-  box-shadow: 0px 4px 4px rgba(10, 255, 1, 0.25), 0px 4px 4px rgba(47, 233, 0, 0.911);
+  box-shadow: 0px 4px 4px rgba(10, 255, 1, 0.25),
+    0px 4px 4px rgba(47, 233, 0, 0.911);
   margin: 20px;
+  /* color: #18d008; */
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -276,7 +278,6 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-
 .Card1 {
   position: relative;
   padding-top: 50px;
@@ -284,8 +285,8 @@
   align-items: center;
 }
 
-.Dropa{
-    font-size: 16px;
+.Dropa {
+  font-size: 16px;
   /* border: 1px solid rgba(0, 0, 0, 0.25); */
   border-radius: 5px;
   width: 200px;
@@ -296,7 +297,6 @@
   padding: 1px;
 }
 
-
 .btn-outline-success {
   position: relative;
   left: 50%;
@@ -304,10 +304,114 @@
   width: 150px;
 }
 
-.SmallTextb{
+.SmallTextb {
   position: relative;
-    left: 46%;
+  left: 46%;
   top: 20px;
-    padding: 27px;
+  padding: 27px;
   color: gray !important;
 }
+
+.Maindiv {
+  text-align: center;
+}
+
+.Mainheader {
+  color: #18d008;
+}
+
+.Move {
+  text-align: center;
+}
+
+.Minheader {
+  color: #0c4706;
+}
+.P1 {
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+.List{
+  text-align: start;
+  padding-left: 800px;
+  color: #0c4706;
+}
+.
+.Textone{
+  color: #0c4706;
+}
+
+.Misson{
+  color: #0c4706;
+}
+
+.class{
+  color: #0c4706;
+  padding-top: 10px;
+}
+
+.core{
+  padding-top: 35px;
+}
+
+.Actionsa{
+  padding-top: 10px;
+}
+
+
+
+/* .Actions {
+  position: relative;
+  top: 25%;
+} */
+/* .Actionsa {
+  position: relative;
+  top: 30%;
+} */
+
+/* .Textone {
+  padding-top: 10px;
+  color: #0c4706;
+  position: relative;
+  right: 770px;
+}
+
+.List {
+
+  text-align: start;
+  color: #000000;
+}
+
+.core {
+  position: relative;
+  top: 50px;
+}
+
+.Vision{
+  position: relative;
+  top: 60px;
+  
+}
+
+.lastp{
+  position: relative;
+top: 65px;
+}
+
+
+.Move{
+ text-align: end;
+}
+
+.class{
+  padding-bottom: 10px;
+}
+.cores{
+  color: #18d008;
+}
+
+.content{
+  color: #0c3d00;
+  text-align: center;
+} */

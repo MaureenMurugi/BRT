@@ -132,7 +132,9 @@ const Landing = () => {
       </div>
     );
   }
-  function BusSelection({ handleNext, handleBack }) {
+
+
+  function BusSelection({ handleNext, }) {
     useEffect(() => {
       if (selectedOptionFrom === "" || selectedOptionTo === "") {
         return handleBack();
@@ -142,12 +144,18 @@ const Landing = () => {
       }
       fetch(
         "http://127.0.0.1:3000/buses?from=" +
-          selectedOptionFrom +
+          selectedOptionFrom.value +
           "&to=" +
-          selectedOptionTo
+          selectedOptionTo.value
       )
         .then((response) => response.json())
-        .then((data) => setBuses([...data]));
+        .then((data) => {
+          if (data.length > 0) {
+            setBuses([...data])
+          } else {
+            
+          }
+        });
     }, []);
     const options = [];
     buses.map((item) =>

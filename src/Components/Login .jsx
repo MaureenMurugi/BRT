@@ -55,7 +55,7 @@ const Login = () => {
         <img className="img-tag" src={Img} alt={Img} />
       </div>
       <div>
-        <h3 className="Textaa">Login As n Admin</h3>
+        <h3 className="Textaa">Login As An Admin</h3>
       </div>
 
       <div className="Parent1">

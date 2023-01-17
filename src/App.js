@@ -8,6 +8,7 @@ import Signup from './Components/Signup';
 import Places from './Components/Places';
 import LoginUser from './Components/LoginUser';
 import AdminSide from './Components/AdminSide';
+import AboutUs from './Components/Aboutus';
 
 
 
@@ -24,7 +25,8 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/places" element={<Places />} />
           <Route path="/loginuser" element={<LoginUser />} />
-          <Route path="/adminside" element={<AdminSide/>} />
+          <Route path="/adminside" element={<AdminSide />} />
+          <Route path="/aboutus" element={<AboutUs />} />
         </Routes>
       </div>
     </div>

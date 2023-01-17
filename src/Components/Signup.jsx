@@ -8,7 +8,7 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const [isSignedIn, setIsSignedIn] = useState(false);
-  const [error, setError] = useState("");
+  const [ setError] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordLengthError, setPasswordLengthError] = useState("");
@@ -135,7 +135,7 @@ const Signup = () => {
           </div>
           {passwordLengthError && <p>{passwordLengthError}</p>}
           <button type="submit" class="btn btn-success">
-            Sing up
+            Sign up
           </button>
         </form>
       </div>
