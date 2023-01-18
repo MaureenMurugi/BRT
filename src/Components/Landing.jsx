@@ -1,16 +1,15 @@
 import React from "react";
 import Select from "react-select";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
 // import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
+import { API_URL } from "../Constants";
+
 import "bootstrap/dist/css/bootstrap.min.css";
-import { width } from "@mui/system";
 
 const Landing = () => {
-  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [isNextDisabled, setIsNextDisabled] = useState(false);
   const [isBackDisabled, setIsBackDisabled] = useState(false);
@@ -29,7 +28,7 @@ const Landing = () => {
     if (currentStep === 3) {
 
 
-      fetch("http://127.0.0.1:3000/pay", {
+      fetch(API_URL+"/pay", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -40,7 +39,7 @@ const Landing = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          fetch("http://127.0.0.1:3000/stkpush", {
+          fetch(API_URL+"/stkpush", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -60,7 +59,7 @@ const Landing = () => {
       return;
     }
     if (currentStep === 2) {
-      fetch("http://127.0.0.1:3000/bookings", {
+      fetch(API_URL+"/bookings", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -88,21 +87,6 @@ const Landing = () => {
     setIsBackDisabled(false);
   }
 
-  function handleNextButton() {
-    if (!selectedOptionFrom || !selectedOptionTo || !selectedOptionBus) {
-      alert("Please select a value for From, To, and Bus.");
-      return;
-    }
-    navigate("/places", {
-      state: {
-        from: selectedOptionFrom,
-        to: selectedOptionTo,
-        bus: selectedOptionBus,
-        username: "John Doe",
-      },
-    });
-  }
-
   function From({ handleNext, handleBack }) {
     useEffect(() => {
       if (data.length > 0) {
@@ -114,7 +98,7 @@ const Landing = () => {
         );
         setToData([...to]);
       }
-      fetch("http://127.0.0.1:3000/start")
+      fetch(API_URL+"/start")
         .then((response) => response.json())
         .then((data) => setData([...data]));
     }, []);
@@ -160,14 +144,14 @@ const Landing = () => {
           <button
             onClick={handleBack}
             disabled={isBackDisabled}
-            class="btn btn-light "
+            className="btn btn-light "
           >
             Back
           </button>
           <button
             onClick={handleNext}
             disabled={isNextDisabled}
-            class="btn btn-light "
+            className="btn btn-light "
           >
             Next
           </button>
@@ -184,7 +168,7 @@ const Landing = () => {
         return;
       }
       fetch(
-        "http://127.0.0.1:3000/available?from=" +
+        API_URL+"/available?from=" +
         selectedOptionFrom.value +
         "&to=" +
         selectedOptionTo.value
@@ -227,14 +211,14 @@ const Landing = () => {
           <button
             onClick={handleBack}
             disabled={isBackDisabled}
-            class="btn btn-light "
+            className="btn btn-light "
           >
             Back
           </button>
           <button
             onClick={handleNext}
             disabled={isNextDisabled}
-            class="btn btn-light "
+            className="btn btn-light "
           >
             Book
           </button>
@@ -245,7 +229,7 @@ const Landing = () => {
   function PaymentMethod({ handleNext, handleBack }) {
     return (
       <div>
-        <dic className="details">
+        <div className="details">
           <div className="details-from">
             You booked a bus <b>{booked.bus_name}</b>
           </div>
@@ -262,12 +246,12 @@ const Landing = () => {
             It is arriving at{" "}
             <b>{new Date(booked.time).toLocaleTimeString()}</b>
           </div>
-        </dic>
+        </div>
         <div className="buttn">
           <button
             onClick={handleBack}
             disabled={isBackDisabled}
-            class="btn btn-light "
+            className="btn btn-light "
           >
             Back
           </button>
@@ -275,7 +259,7 @@ const Landing = () => {
 
             onClick={handleNext}
             disabled={isNextDisabled}
-            class="btn btn-light "
+            className="btn btn-light "
             style={{ backgroundColor: "green", color: "white" }}
           >
             Pay Now
@@ -346,9 +330,7 @@ const Landing = () => {
           </div>
         </div>
         <div className="Below">
-          <p>
             <h2 className="Text">What we do</h2>
-          </p>
           <ul>
             <li>Pick you at your door step</li>
             <li>Give you fair bus rates</li>

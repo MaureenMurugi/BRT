@@ -2,13 +2,13 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
+
+import { API_URL } from "../Constants";
 
 const Signup = () => {
   const navigate = useNavigate();
 
   const [isSignedIn, setIsSignedIn] = useState(false);
-  const [error, setError] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordLengthError, setPasswordLengthError] = useState("");
@@ -30,7 +30,7 @@ const Signup = () => {
       return;
     }
 
-    fetch("http://127.0.0.1:3000/users", {
+    fetch(`${API_URL}/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +46,7 @@ const Signup = () => {
         if (response.ok) {
           return response.json();
         } else {
-          setError("Error creating user");
+          alert("Error creating user, try again");
           return null;
         }
       })
@@ -55,7 +55,6 @@ const Signup = () => {
           console.log(data);
           window.localStorage.setItem("id", data.id);
           navigate("/");
-          setError(null);
         }
       });
     setIsSignedIn(true);

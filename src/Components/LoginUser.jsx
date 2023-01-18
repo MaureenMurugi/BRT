@@ -1,20 +1,15 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
+import { API_URL } from "../Constants";
+
 const LoginUser = () => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState({
-    phoneNumber: "",
-    password: "",
-  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://127.0.0.1:3000/auth/login", {
+    fetch(`${API_URL}/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -29,7 +24,7 @@ const LoginUser = () => {
           setIsLoggedIn(true);
           return response.json();
         }
-        setError("Error logging in");
+        alert("Invalid phone number or password");
         return null;
       })
       .then((data) => {

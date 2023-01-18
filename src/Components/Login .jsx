@@ -1,23 +1,13 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
-import { WbIncandescentTwoTone } from "@mui/icons-material";
+import { API_URL } from "../Constants";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState({
-    phoneNumber: "",
-    password: "",
-  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://127.0.0.1:3000/auth/admin", {
+    fetch(`${API_URL}/auth/admin`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -29,7 +19,6 @@ const Login = () => {
     })
     .then((response) => {
       if (response.ok) {
-        setIsLoggedIn(true);
         return response.json();
       }
       alert("Invalid phone number or password");
