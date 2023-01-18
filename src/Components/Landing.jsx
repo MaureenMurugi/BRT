@@ -55,7 +55,7 @@ const Landing = () => {
               setHasBooked(true);
             });
         });
-      isNextDisabled(true);
+      setIsNextDisabled(true);
       return;
     }
     if (currentStep === 2) {
