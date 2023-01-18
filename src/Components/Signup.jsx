@@ -18,7 +18,7 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isSignedIn === true) {
-      return navigate("/landing");
+      return navigate("/");
     }
     if (password !== confirmPassword) {
       alert("Passwords do not match");
@@ -36,9 +36,9 @@ const Signup = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: e.target.name.value,
+        fullname: e.target.name.value,
         phonenumber: e.target.number.value,
-        password: e.target.password.value,
+        password_digest: e.target.password.value,
         confirmpassword: e.target.confirmPassword.value,
       }),
     })
@@ -53,6 +53,8 @@ const Signup = () => {
       .then((data) => {
         if (data) {
           console.log(data);
+          window.localStorage.setItem("id", data.id);
+          navigate("/");
           setError(null);
         }
       });
@@ -61,9 +63,9 @@ const Signup = () => {
 
   return (
     <div>
-      <div className="img">
+      {/* <div className="img">
         <img className="img-tag" src={Img} alt={Img} />
-      </div>
+      </div> */}
       <div className="singuptxt11"></div>
       <div>
         <h3 className="Textaa1">Sign Up</h3>

@@ -14,21 +14,14 @@ const LoginUser = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!phoneNumber || !password) {
-      setError({
-        phoneNumber: !phoneNumber ? "Phone number is required" : "",
-        password: !password ? "Password is required" : "",
-      });
-      return;
-    }
-    fetch("http://127.0.0.1:3000/login", {
+    fetch("http://127.0.0.1:3000/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        phoneNumber: phoneNumber,
-        password: password,
+        phonenumber: e.target.number.value,
+        password_digest: e.target.password.value,
       }),
     })
       .then((response) => {
@@ -36,54 +29,57 @@ const LoginUser = () => {
           setIsLoggedIn(true);
           return response.json();
         }
-        throw new Error("Phone number or password is invalid");
+        setError("Error logging in");
+        return null;
       })
-      .then(console.log)
-      .catch(console.log);
+      .then((data) => {
+        if (data) {
+          console.log(data);
+          window.localStorage.setItem("id", data.id);
+          navigate("/");
+        }})
+
 
     if (isLoggedIn === true) {
-      return navigate("/landing");
+      return navigate("/");
     }
     setIsLoggedIn(true);
   };
 
   return (
     <div>
-      <div className="img">
+      {/* <div className="img">
         <img className="img-tag" src={Img} alt={Img} />
-      </div>
+      </div> */}
       <div>
         <h3 className="Textaa1">Login </h3>
       </div>
 
       <div className="Parent1">
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <div class="form-group">
             <label>Phone number</label>
-  
+
             <input
               type="number"
+              name="number"
               class="form-control"
               placeholder="Enter phone number"
               required
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              autoFocus="yes"
             />
             <br />
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-      
+
             <input
               type="password"
               // onChange={handleChange}
+              name="password"
               class="form-control"
               id="exampleInputPassword1"
               placeholder="Password"
               required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
             />
             <br />
             <div class="col-auto">
