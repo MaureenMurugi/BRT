@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
+// import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
 // import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -226,9 +226,9 @@ const Landing = () => {
 
   return (
     <div>
-      <div className="img">
+      {/* <div className="img">
         <img className="img-tag" src={Img} alt={Img} />
-      </div>
+      </div> */}
       <div>
         {currentStep === 1 && (
           <From handleNext={handleNext} handleBack={handleBack} />
@@ -243,8 +243,8 @@ const Landing = () => {
       </div>
       <br />
       <br />
+      <h2 className="TextA">The Booking Process</h2>
       <div className="ParentDiv">
-        <h2 className="TextA">The Booking Process</h2>
         <div className="Card">
           <h3 className="Head">Choose destinantion</h3>
           <br />

@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
+// import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -62,7 +62,7 @@ const Signup = () => {
   return (
     <div>
       <div className="img">
-        <img className="img-tag" src={Img} alt={Img} />
+        <img className="" />
       </div>
       <div className="singuptxt11"></div>
       <div>

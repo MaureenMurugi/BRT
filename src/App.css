@@ -1,3 +1,17 @@
+:root {
+  --font-size-base: 16px;
+}
+
+@media (min-width: 600px) {
+  :root {
+    --font-size-base: 18px;
+  }
+}
+
+h1 {
+  font-size: var(--font-size-base);
+}
+
 .NavbarItems {
   align-items: center;
   display: flex;
@@ -66,7 +80,7 @@
   background-color: #053d00;
   color: white;
   padding: 10px;
-  position: fixed;
+  position: initial;
   bottom: 0;
   width: 100%;
 }
@@ -77,8 +91,8 @@
   right: 1%;
 }
 .Below {
-  position: absolute;
-  top: 70%;
+  position: initial;
+  padding-top: 97px;
 }
 
 .Text {
@@ -95,22 +109,25 @@
 }
 
 .TextA {
+text-align: start;
+justify-content: center;
   text-decoration: underline #18d008;
-  position: absolute;
-  top: 35%;
-  text-align: start;
+  position: initial;
+  padding-bottom:  30px;
+  text-align: center;
+  align-items: center;
 }
 .ParentDiv {
   padding-top: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 35vh;
+  height: 40vh;
 }
 
 .Card {
-  width: 300px;
-  height: 320px;
+  width: 290px;
+  height: 310px;
   border-radius: 5px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
     0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -118,6 +135,7 @@
   padding-right: 100px;
   cursor: pointer;
   transition: transform 0.3s ease;
+
 }
 .Card:hover {
   transform: scale(1.05);
@@ -174,25 +192,29 @@
   color: #18d008;
   display: flex;
   text-align: start;
-  position: absolute;
-  left: 46%;
+  position: initial;
+  padding-left: 45%;
   font-weight: bolder;
+  padding-bottom: 9px;
 }
 .Textaa1 {
   color: #18d008;
-  display: flex;
-  text-align: start;
-  position: absolute;
-  left: 50%;
+  display: grid;
+  text-align: center;
+  /* position: initial; */
+  /* padding-left: 650px; */
   font-weight: bolder;
+  padding-bottom: 9px;
 }
 .form-group {
   padding: 15px;
+  text-align: center;
+  align-items: center;
   width: 300px;
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
-  position: relative;
+  position: inherit;
   left: 44%;
   top: 100px;
 }
@@ -212,16 +234,22 @@
 }
 
 .img {
-  position: absolute;
-  padding-left: 25%;
+   position: relative;
 }
 
 .img-tag {
   top: 0;
-  padding-left: 60%;
-  width: 1200px;
-  height: 100%;
+  padding-left: 80%;
+  width: 1690px;
+  height: 50%;
 }
+
+.Parent1{
+  /* position: initial; */
+  /* bottom: 130px; */
+}
+
+
 
 .buttn {
   padding-top: 25px;
@@ -232,7 +260,7 @@
 }
 
 .text11 {
-  position: absolute;
+  position: relative;
   bottom: 1px;
   text-align: start;
   right: 50%;
@@ -332,86 +360,29 @@
   white-space: pre-wrap;
 }
 
-.List{
+.List {
   text-align: start;
   padding-left: 800px;
   color: #0c4706;
 }
-.
-.Textone{
+
+.Textone {
   color: #0c4706;
 }
 
-.Misson{
+.Misson {
   color: #0c4706;
 }
 
-.class{
+.class {
   color: #0c4706;
   padding-top: 10px;
-}
-
-.core{
-  padding-top: 35px;
-}
-
-.Actionsa{
-  padding-top: 10px;
-}
-
-
-
-/* .Actions {
-  position: relative;
-  top: 25%;
-} */
-/* .Actionsa {
-  position: relative;
-  top: 30%;
-} */
-
-/* .Textone {
-  padding-top: 10px;
-  color: #0c4706;
-  position: relative;
-  right: 770px;
-}
-
-.List {
-
-  text-align: start;
-  color: #000000;
 }
 
 .core {
-  position: relative;
-  top: 50px;
+  padding-top: 35px;
 }
 
-.Vision{
-  position: relative;
-  top: 60px;
-  
+.Actionsa {
+  padding-top: 10px;
 }
-
-.lastp{
-  position: relative;
-top: 65px;
-}
-
-
-.Move{
- text-align: end;
-}
-
-.class{
-  padding-bottom: 10px;
-}
-.cores{
-  color: #18d008;
-}
-
-.content{
-  color: #0c3d00;
-  text-align: center;
-} */

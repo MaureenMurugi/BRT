@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
+// import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
 const LoginUser = () => {
   const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -50,7 +50,7 @@ const LoginUser = () => {
   return (
     <div>
       <div className="img">
-        <img className="img-tag" src={Img} alt={Img} />
+        <img className="" />
       </div>
       <div>
         <h3 className="Textaa1">Login </h3>
@@ -60,7 +60,7 @@ const LoginUser = () => {
         <form className="form">
           <div class="form-group">
             <label>Phone number</label>
-  
+
             <input
               type="number"
               class="form-control"
@@ -74,7 +74,7 @@ const LoginUser = () => {
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-      
+
             <input
               type="password"
               // onChange={handleChange}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
+// import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -52,7 +52,7 @@ const Login = () => {
   return (
     <div>
       <div className="img">
-        <img className="img-tag" src={Img} alt={Img} />
+        <img className="" />
       </div>
       <div>
         <h3 className="Textaa">Login As An Admin</h3>
