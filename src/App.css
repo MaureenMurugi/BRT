@@ -226,7 +226,7 @@
   justify-items: center;
   position: relative;
   left: 44%;
-  top: 100px;
+  top: 70px;
 }
 .form-control {
   align-self: center;
@@ -272,7 +272,6 @@
 
 .form {
   position: relative;
-  top: 1px;
 }
 
 .singuptxt1 {
@@ -283,7 +282,7 @@
   color: #18d008;
   overflow-wrap: break-word;
   text-align: center;
-  bottom: 35px;
+  /* bottom: 25px; */
 }
 
 .places {
@@ -366,4 +365,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Media */
+@media screen and (max-width: 1200px) {
+  .Table {
+    width: 170%;
+    margin-top: 2rem;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .Table{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 23rem;
+  }
 }

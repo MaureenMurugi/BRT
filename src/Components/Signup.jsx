@@ -62,14 +62,10 @@ const Signup = () => {
 
   return (
     <div>
-      {/* <div className="img">
-        <img className="img-tag" src={Img} alt={Img} />
-      </div> */}
       <div className="singuptxt11"></div>
       <div>
         <h3 className="Textaa1">Sign Up</h3>
       </div>
-      <div className="Parent1">
         <form className="form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Full name</label>
@@ -139,7 +135,7 @@ const Signup = () => {
             Sign up
           </button>
         </form>
-      </div>
+      
     </div>
   );
 };
