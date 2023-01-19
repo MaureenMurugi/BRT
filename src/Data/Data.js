@@ -13,6 +13,8 @@ import img1 from "../Images/img1.jpg";
 import Integrity from '../Images/integrity.jpg'
 import Diversity from '../Images/shake.png'
 import Professionalism from '../Images/prof.jpeg'
+import Avatar from '../Images/avatar.png'
+import Female from '../Images/female.png'
 
 import {
   UilUsdSquare,
@@ -89,21 +91,27 @@ export const CardsData = [{
 
 // Recent Update Card Data
 export const UpdatesData = [{
-    img: img1,
+    img: Female,
     name: "Maureen Murugi",
-    noti: "has ordered Apple smart watch 2500mh battery.",
+    noti: "Admin: Update users chart according to payment and at what time ",
     time: "25 seconds ago",
   },
   {
-    img: img1,
-    name: "James Bond",
-    noti: "has received Samsung gadget for charging battery.",
+    img: Avatar,
+    name: "Jackson Kahono",
+    noti: "Bus controller: Update the buses, that are empty, ful and have seats.",
     time: "30 minutes ago",
   },
   {
-    img: img1,
-    name: "Iron Man",
-    noti: "has ordered Apple smart watch, samsung Gear 2500mh battery.",
+    img: Female,
+    name: "Esther Wanjiku",
+    noti: "Fare controller: Make changes to the fare, per station and confirm Mpesa payments.",
+    time: "2 hours ago",
+  },
+  {
+    img: Female,
+    name: "Zipporah Kwamboka",
+    noti: "Admin: Security and update the live charts in time and per bus, fare and users.",
     time: "2 hours ago",
   },
 ];
