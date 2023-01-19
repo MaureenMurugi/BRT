@@ -136,7 +136,7 @@ const Signup = () => {
           </div>
           {passwordLengthError && <p>{passwordLengthError}</p>}
           <button type="submit" class="btn btn-success">
-            Sing up
+            Sign up
           </button>
         </form>
       </div>
