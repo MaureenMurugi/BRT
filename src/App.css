@@ -1,0 +1,389 @@
+.App-landing{
+  width:1400px;
+  height: fit-content;
+  margin:0 auto;
+}
+.NavbarItems {
+  align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 3.5rem;
+}
+
+.NavMenu {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 10px;
+  list-style: none;
+  align-items: center;
+  text-align: center;
+  justify-content: end;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #0c3d00 !important;
+}
+
+.NavLinks {
+  color: black;
+  text-decoration: none !important;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 15px;
+  padding: 0.7rem 1rem;
+}
+
+.NavLinksb {
+  color: black;
+  text-decoration: none !important;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 15px;
+  padding: 0.7rem 1rem;
+  margin-right: 30px;
+}
+
+.NavLinksb:hover {
+  background: #18d008 !important;
+  border-radius: 15px;
+  transition: all 0.275s ease-in-out;
+}
+
+.NavLinksa {
+  color: black;
+  text-decoration: none !important;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 15px;
+  padding: 0.7rem 1rem;
+  margin-left: 30px;
+}
+
+.NavLinksa:hover {
+  background: #18d008 !important;
+  border-radius: 15px;
+  transition: all 0.275s ease-in-out;
+}
+
+.NavLinks:hover {
+  background: #18d008 !important;
+  border-radius: 15px;
+  transition: all 0.275s ease-in-out;
+}
+
+.Hero{
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.img{
+  width:600px;
+  height: 450px;
+  transform: translateY(-50px);
+}
+
+.img-tag{
+  width:100%;
+  height: 100%;
+}
+
+.Foot {
+  background-color: #053d00;
+  color: white;
+  padding: 10px;
+}
+
+.ul {
+  position: relative;
+  list-style: none;
+  right: 1%;
+}
+.Below {
+  /* position: absolute;
+  top: 70%; */
+}
+
+.Text {
+  text-decoration: underline #18d008;
+  text-align: start;
+  padding-left: 50px;
+}
+
+.Head {
+  white-space: nowrap;
+  padding: 20px;
+  text-align: center;
+  color: #477e42;
+}
+
+.App-landing .ParentDiv {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: -6rem;
+}
+
+.ParentDiv h2{
+  width: fit-content;
+  text-align: center;
+  font-weight: 700;
+  border-bottom:5px solid #18d008;
+}
+
+.App-landing .Cards{
+  width: 80%;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: space-between;
+
+}
+.App-landing .Card {
+  width: 300px;
+  height: 320px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  margin: 20px;
+  padding-right: 100px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.Card:hover {
+  transform: scale(1.05);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.Card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.Paragraph {
+  word-wrap: normal;
+  text-align: start;
+  padding-left: 50px;
+}
+
+.Drop {
+  font-size: 16px;
+  /* border: 1px solid rgba(0, 0, 0, 0.25); */
+  border-radius: 5px;
+  width: 200px;
+  position: relative;
+  margin: 8px;
+  background-color: #18d008;
+  padding: 1px;
+
+}
+
+.Drop1 {
+  display: inline-block;
+  position: relative;
+  padding-left: 2px;
+  padding-right: 2px;
+  width: 200px;
+
+  border: #18d008;
+
+}
+
+.SmallText {
+  padding: 27px 8px;
+  color: gray !important;
+}
+
+
+.btn-light {
+  position: relative;
+  left: 1%;
+  border: 1px solid rgb(15, 185, 13) !important;
+  margin: 8px;
+  width: 100px;
+}
+
+.text {
+  text-align: start;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.Textaa {
+  color: #18d008;
+  display: flex;
+  text-align: start;
+  position: absolute;
+  left: 46%;
+  font-weight: bolder;
+}
+.Textaa1 {
+  color: #18d008;
+  display: flex;
+  text-align: start;
+  position: absolute;
+  left: 50%;
+  font-weight: bolder;
+}
+.form-group {
+  padding: 15px;
+  width: 300px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  position: relative;
+  left: 44%;
+  top: 100px;
+}
+.form-control {
+  align-self: center;
+}
+
+.btn-success {
+  position: relative;
+  left: 44%;
+  top: 100px;
+  width: 300px;
+}
+
+.Head {
+  color: #0c3d00;
+}
+
+/* .img {
+  position: absolute;
+  padding-left: 25%;
+}
+
+.img-tag {
+  top: 0;
+  padding-left: 60%;
+  width: 1200px;
+  height: 100%;
+} */
+
+.buttn {
+  padding-top: 25px;
+}
+
+.singuptxt {
+  color: #18d008;
+}
+
+.text11 {
+  position: absolute;
+  bottom: 1px;
+  text-align: start;
+  right: 50%;
+}
+
+.form {
+  position: relative;
+  top: 1px;
+}
+
+.singuptxt1 {
+  position: relative;
+  left: 25px;
+  font-weight: bold;
+  white-space: normal;
+  color: #18d008;
+  overflow-wrap: break-word;
+  text-align: center;
+  bottom: 35px;
+}
+
+.places {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
+    0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.Card11 {
+  position: relative;
+  left: 43%;
+    top: 100px;
+  width: 350px;
+  height: 230px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(10, 255, 1, 0.25), 0px 4px 4px rgba(47, 233, 0, 0.911);
+  margin: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.Card11:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+.Card1 {
+  position: relative;
+  padding-top: 50px;
+  padding-left: 10px;
+  align-items: center;
+}
+
+.Dropa{
+    font-size: 16px;
+  /* border: 1px solid rgba(0, 0, 0, 0.25); */
+  border-radius: 5px;
+  width: 200px;
+  position: relative;
+  left: 47%;
+  top: 25px;
+  background-color: #18d008;
+  padding: 1px;
+}
+
+
+.btn-outline-success {
+  position: relative;
+  left: 50%;
+  top: 100px;
+  width: 150px;
+}
+
+.SmallTextb{
+  position: relative;
+    left: 46%;
+  top: 20px;
+    padding: 27px;
+  color: gray !important;
+}
+
+.table{
+  width:200px;
+  height:fit-content;
+  border:1px solid #18d008;
+  display: flex;
+}
+.table table{
+  text-align: center;
+  width:100%;
+  height:100%;
+  border-collapse: collapse;
+}
+/* set border for table and rows */
+.table tr, .table th, .table td{
+  border:1px solid #18d008;
+  padding: 0.5rem;
+}
+
+.details{
+  padding:2rem;
+  text-align: justify;
+  width:fit-content;
+  height: fit-content;
+  border:2px solid #18d008;
+  border-radius: 5px;
+}
+
+.details div{
+  margin:1rem 0;
+}
+
+.details b{
+  font-style: normal;
+  border:1px solid #18d008;
+  padding:0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.details-success{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
