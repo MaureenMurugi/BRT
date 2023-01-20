@@ -38,7 +38,7 @@ Unzip the cloned files in a folder of choice.
 2. React JS - Structure to the web application and interaction with the users.
 3. SQlite3 - Interactions with the database.
 # Live Front-end link
-> 'https://bus-transit-services-60kl2cus2-maureenmurugi.vercel.app/'
+> 'https://bus-transit-services.vercel.app/'
 # Live Back-end link
 > 'https://modern-burst-production.up.railway.app/'
 # Authors Info
