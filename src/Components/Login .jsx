@@ -1,9 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { API_URL } from "../Constants";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
 
   const handleSubmit = (e) => {
     e.preventDefault();

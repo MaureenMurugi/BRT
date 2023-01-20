@@ -362,6 +362,26 @@
   padding: 0.5rem;
 }
 
+.details{
+  padding:2rem;
+  text-align: justify;
+  width:fit-content;
+  height: fit-content;
+  border:2px solid #18d008;
+  border-radius: 5px;
+}
+
+.details div{
+  margin:1rem 0;
+}
+
+.details b{
+  font-style: normal;
+  border:1px solid #18d008;
+  padding:0.5rem 1rem;
+  border-radius: 5px;
+}
+
 .details-success{
   display: flex;
   justify-content: center;

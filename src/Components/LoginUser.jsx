@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import { API_URL } from "../Constants";
 
 const LoginUser = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleSubmit = (e) => {
@@ -31,8 +33,13 @@ const LoginUser = () => {
         if (data) {
           console.log(data);
           window.localStorage.setItem("id", data.id);
-          navigate("/");
-        }})
+          if (location.state?.from) {
+            navigate("/", { state: { from: location.state.from, to: location.state.to, bus_id: location.state.bus_id } });
+          } else {
+            navigate("/");
+          }
+        }
+      })
 
 
     if (isLoggedIn === true) {

@@ -1,7 +1,8 @@
 import React from "react";
 import Select from "react-select";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+
 import Img from "../Components/img/undraw_Bus_stop_re_h8ej.png";
 // import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
@@ -10,6 +11,9 @@ import { API_URL } from "../Constants";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Landing = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const [currentStep, setCurrentStep] = useState(1);
   const [isNextDisabled, setIsNextDisabled] = useState(false);
   const [isBackDisabled, setIsBackDisabled] = useState(false);
@@ -19,15 +23,47 @@ const Landing = () => {
   const [booked, setBooked] = useState({});
   const [hasBooked, setHasBooked] = useState(false);
 
+
   const [data, setData] = useState([]);
   const [toData, setToData] = useState([]);
 
   const [buses, setBuses] = useState([]);
 
+  if(location.state?.from){
+    const prevData = {
+      from: location.state.from,
+      to: location.state.to,
+      bus_id: location.state.bus_id
+    }
+    //clear state
+    location.state.from = null
+    location.state.to = null
+    location.state.bus_id = null
+    setCurrentStep(3)
+  }
+
+  function requestNotificationPermission(){
+    Notification.requestPermission().then(function(result) {
+      console.log(result);
+    });
+  }
+
+  function Notify(data){
+    //notify with sound on
+    const notification = new Notification({
+      title: data.title,
+      body: data.body,
+      sound: "/sound.wav"
+    });
+    notification.onclick = (event) => {
+      event.preventDefault();
+      window.open(data.click_action, '_blank');
+    }
+
+  }
+
   function handleNext() {
     if (currentStep === 3) {
-
-
       fetch(API_URL+"/pay", {
         method: "POST",
         headers: {
@@ -56,9 +92,21 @@ const Landing = () => {
             });
         });
       setIsNextDisabled(true);
+      setTimeout(() => {
+        const dt = {
+          title: "Bus Ticket",
+          body: "Your ticket has been booked",
+          icon: "https://www.flaticon.com/svg/static/icons/svg/2922/2922510.svg",
+          click_action: "http://localhost:3001"
+        }
+        Notify(dt)
+      }, 5000);
       return;
     }
     if (currentStep === 2) {
+      // if(window.localStorage.getItem("iud") === null){
+      //   navigate("/loginuser",{state: {from: selectedOptionFrom.value, to: selectedOptionTo.value, bus_id: selectedOptionBus.value}})
+      // }
       fetch(API_URL+"/bookings", {
         method: "POST",
         headers: {
@@ -68,6 +116,7 @@ const Landing = () => {
           from: selectedOptionFrom.value,
           to: selectedOptionTo.value,
           bus_id: selectedOptionBus.value,
+          user_id: window.localStorage.getItem("id"),
         }),
       })
         .then((response) => response.json())
@@ -316,7 +365,11 @@ const Landing = () => {
                 one, then select next.
               </p>
             </div>
-            <div className="Card">
+            <div className="Card" onClick={
+              () => {
+                requestNotificationPermission();
+              }
+            }>
               <h3 className="Head">Pay and board</h3>
               <br />
               <p className="Paragraph">
