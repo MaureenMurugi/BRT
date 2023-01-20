@@ -3,6 +3,20 @@
   height: fit-content;
   margin:0 auto;
 }
+:root {
+  --font-size-base: 16px;
+}
+
+@media (min-width: 600px) {
+  :root {
+    --font-size-base: 18px;
+  }
+}
+
+h1 {
+  font-size: var(--font-size-base);
+}
+
 .NavbarItems {
   align-items: center;
   display: flex;
@@ -90,6 +104,9 @@
   background-color: #053d00;
   color: white;
   padding: 10px;
+  position: initial;
+  bottom: 0;
+  width: 100%;
 }
 
 .ul {
@@ -144,6 +161,7 @@
   padding-right: 100px;
   cursor: pointer;
   transition: transform 0.3s ease;
+
 }
 .Card:hover {
   transform: scale(1.05);
@@ -206,25 +224,29 @@
   color: #18d008;
   display: flex;
   text-align: start;
-  position: absolute;
-  left: 46%;
+  position: initial;
+  padding-left: 45%;
   font-weight: bolder;
+  padding-bottom: 9px;
 }
 .Textaa1 {
   color: #18d008;
-  display: flex;
-  text-align: start;
-  position: absolute;
-  left: 50%;
+  display: grid;
+  text-align: center;
+  /* position: initial; */
+  /* padding-left: 650px; */
   font-weight: bolder;
+  padding-bottom: 9px;
 }
 .form-group {
   padding: 15px;
+  text-align: center;
+  align-items: center;
   width: 300px;
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
-  position: relative;
+  position: inherit;
   left: 44%;
   top: 70px;
 }
@@ -255,6 +277,13 @@
   height: 100%;
 } */
 
+.Parent1{
+  /* position: initial; */
+  /* bottom: 130px; */
+}
+
+
+
 .buttn {
   padding-top: 25px;
 }
@@ -264,7 +293,7 @@
 }
 
 .text11 {
-  position: absolute;
+  position: relative;
   bottom: 1px;
   text-align: start;
   right: 50%;
@@ -293,12 +322,14 @@
 .Card11 {
   position: relative;
   left: 43%;
-    top: 100px;
+  top: 100px;
   width: 350px;
   height: 230px;
   border-radius: 5px;
-  box-shadow: 0px 4px 4px rgba(10, 255, 1, 0.25), 0px 4px 4px rgba(47, 233, 0, 0.911);
+  box-shadow: 0px 4px 4px rgba(10, 255, 1, 0.25),
+    0px 4px 4px rgba(47, 233, 0, 0.911);
   margin: 20px;
+  /* color: #18d008; */
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -307,7 +338,6 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-
 .Card1 {
   position: relative;
   padding-top: 50px;
@@ -315,8 +345,8 @@
   align-items: center;
 }
 
-.Dropa{
-    font-size: 16px;
+.Dropa {
+  font-size: 16px;
   /* border: 1px solid rgba(0, 0, 0, 0.25); */
   border-radius: 5px;
   width: 200px;
@@ -327,7 +357,6 @@
   padding: 1px;
 }
 
-
 .btn-outline-success {
   position: relative;
   left: 50%;
@@ -335,11 +364,11 @@
   width: 150px;
 }
 
-.SmallTextb{
+.SmallTextb {
   position: relative;
-    left: 46%;
+  left: 46%;
   top: 20px;
-    padding: 27px;
+  padding: 27px;
   color: gray !important;
 }
 
@@ -404,4 +433,50 @@
     align-items: center;
     width: 23rem;
   }
+}
+.Maindiv {
+  text-align: center;
+}
+
+.Mainheader {
+  color: #18d008;
+}
+
+.Move {
+  text-align: center;
+}
+
+.Minheader {
+  color: #0c4706;
+}
+.P1 {
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+.List {
+  text-align: start;
+  padding-left: 800px;
+  color: #0c4706;
+}
+
+.Textone {
+  color: #0c4706;
+}
+
+.Misson {
+  color: #0c4706;
+}
+
+.class {
+  color: #0c4706;
+  padding-top: 10px;
+}
+
+.core {
+  padding-top: 35px;
+}
+
+.Actionsa {
+  padding-top: 10px;
 }

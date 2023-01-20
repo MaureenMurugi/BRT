@@ -8,8 +8,8 @@ import Signup from './Components/Signup';
 import Places from './Components/Places';
 import LoginUser from './Components/LoginUser';
 import AdminSide from './Components/AdminSide';
-import Aboutus from './Components/Aboutus';
-import { useEffect, useState} from 'react';
+import AboutUs from './Components/Aboutus';
+import React, { useState, useEffect } from "react";
 
 
 
@@ -44,6 +44,8 @@ function App() {
     );
   }
 
+
+
   return (
     <div>
        <Navbar/>
@@ -56,9 +58,9 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/places" element={<Places />} />
           <Route path="/loginuser" element={<LoginUser />} />
-          <Route path="/" element={<Landing />} />
-          <Route path="/Aboutus"  element={<Aboutus/>} />
-          <Route path="/" component={Example} />
+          <Route path="/adminside" element={<AdminSide />} />
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/" component={<Landing />} />
         </Routes>
       </div>
 

@@ -9,6 +9,7 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const [isSignedIn, setIsSignedIn] = useState(false);
+  const [ setError] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordLengthError, setPasswordLengthError] = useState("");
@@ -135,7 +136,7 @@ const Signup = () => {
             Sign up
           </button>
         </form>
-      
+
     </div>
   );
 };

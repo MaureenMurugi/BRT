@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { Link, useResolvedPath, useMatch } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -8,9 +8,9 @@ const Navbar = () => {
       <h1 className="Head">Bus Transit Service</h1>
       <ul className="NavMenu">
         <li>
-          <CustomLink to="/landing" className="NavLinks">
+          <Link to="/landing" className="NavLinks">
             Travel
-          </CustomLink>
+          </Link>
         </li>
         <li>
           <CustomLink to="/Aboutus" className="NavLinks">
@@ -19,13 +19,13 @@ const Navbar = () => {
         </li>
         <li>
           <CustomLink to="/login" className="NavLinksa">
-            Admin LogIn
+            Admin side
           </CustomLink>
         </li>
         <li>
-          <CustomLink to="/signup" className="NavLinksb">
+          <Link to="/signup" className="NavLinksb">
             Sign Up
-          </CustomLink>
+          </Link>
         </li>
       </ul>
     </nav>
