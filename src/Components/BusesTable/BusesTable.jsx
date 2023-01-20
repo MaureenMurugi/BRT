@@ -6,35 +6,29 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { useState,useEffect } from 'react';
 
-import './Table.css'
+import './BusTable.css'
 
-
-function createData(bus_name, seater, passengers, status, from, to, time,) {
-  return { bus_name, seater, passengers, status, from, to, time};
+function createData(name, phonenumber, date, status) {
+  return { name, phonenumber, date, status };
 }
 
-
 const rows = [
-    createData("Toxic", 40 , 40 , "Empty", "Juja","Ruiru", "8:00am"),
-    createData("Batman", 60 , 60 , "Full", "CBD","Thika", "1:00pm"),
-    createData("Kingkong", 25 , 23 , "2 seats", "Juja","Ruiru", "8:00am"),
-    createData("Mixtape", 25 , 25 , "Empty", "Roysa","CBD", "8:00am"),
-    createData("Sugar", 10 , 10 , "Empty", "Juja","TRM", "8:00am"),
+    createData("Maureen Murugi", "+254725488466", "2 January 2023", "Approved"),
+    createData("Gerald Kamau ", "+254728963548", "12 January 2023", "Pending"),
+    createData("Esther Wanjiku", "+2547852147", "8 January 2023", "Approved"),
+    createData("Maurine Mwende", "+2547741258", "5 January 202", "Pending"),
 ];
 
-
-
 const makeStyle=(status)=>{
-    if(status === 'Full')
+    if(status === 'Approved')
   {
     return {
       background: 'rgb(145 254 159 / 47%)',
       color: 'green',
     }
   }
-  else if(status === 'Empty')
+  else if(status === 'Pending')
   {
     return{
       background: '#ffadad8f',
@@ -50,10 +44,9 @@ const makeStyle=(status)=>{
 }
 
 export default function BasicTable() {
- 
   return (
       <div className="Table">
-          <h3>Recent Buses</h3>
+          <h3>Recent Orders</h3>
      
     <TableContainer component={Paper}
     style={{
@@ -66,12 +59,9 @@ export default function BasicTable() {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Bus</TableCell>
-            <TableCell align="left">Seats</TableCell>
-            <TableCell align="left">Passengers</TableCell>
-            <TableCell align="left">To</TableCell>
-            <TableCell align="left">From</TableCell>
-            <TableCell align="left">Time</TableCell>
+            <TableCell>Name</TableCell>
+            <TableCell align="left">Phonenumber</TableCell>
+            <TableCell align="left">Date/Time</TableCell>
             <TableCell align="left">Status</TableCell>
             <TableCell align="left"></TableCell>
           </TableRow>
@@ -79,26 +69,18 @@ export default function BasicTable() {
         <TableBody>
           {rows.map((row) => (
             <TableRow
-              key={row.bus_name}
+              key={row.name}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.bus_name}
+                {row.name}
               </TableCell>
-              <TableCell align="left">{row.seater}</TableCell>
-              <TableCell align="left">{row.passengers}</TableCell>
-              <TableCell align="left">{row.from}</TableCell>
-              <TableCell align="left">{row.to}</TableCell>
-              <TableCell align="left">{row.time}</TableCell>
-              
+              <TableCell align="left">{row.phonenumber}</TableCell>
+              <TableCell align="left">{row.date}</TableCell>
               <TableCell align="left">
               <span className="status" style={makeStyle(row.status)}>{row.status}</span>
               </TableCell>
-              <TableCell align="left" className='Details'>
-                
-                  <button>Delete</button>
-                
-                </TableCell>
+              <TableCell align="left" className='Details'>Details</TableCell>
             </TableRow>
           ))}
         </TableBody>

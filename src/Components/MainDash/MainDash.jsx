@@ -2,6 +2,7 @@
 import React from 'react'
 import Cards from '../Cards/Cards'
 import Table from '../Table/Table'
+//import BusTable from  '../BusTable/BusTable'
 import './MainDash.css'
 
 const MainDash = () => {
@@ -11,6 +12,7 @@ const MainDash = () => {
        <Cards/>
        
        <Table/>
+      
 
    </div>
   )

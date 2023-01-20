@@ -13,6 +13,11 @@ const Navbar = () => {
           </CustomLink>
         </li>
         <li>
+          <CustomLink to="/Aboutus" className="NavLinks">
+            AboutUs
+          </CustomLink>
+        </li>
+        <li>
           <CustomLink to="/login" className="NavLinksa">
             Admin LogIn
           </CustomLink>
