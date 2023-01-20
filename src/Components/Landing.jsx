@@ -52,8 +52,7 @@ const Landing = () => {
     //notify with sound on
     const notification = new Notification({
       title: data.title,
-      body: data.body,
-      sound: "/sound.wav"
+      body: data.body
     });
     notification.onclick = (event) => {
       event.preventDefault();
