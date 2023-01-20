@@ -8,7 +8,7 @@ const Navbar = () => {
       <h1 className="Head">Bus Transit Service</h1>
       <ul className="NavMenu">
         <li>
-          <Link to="/landing" className="NavLinks">
+          <Link to="/" className="NavLinks">
             Travel
           </Link>
         </li>

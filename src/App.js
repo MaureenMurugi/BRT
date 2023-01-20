@@ -58,9 +58,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/places" element={<Places />} />
           <Route path="/loginuser" element={<LoginUser />} />
-          <Route path="/adminside" element={<AdminSide />} />
-          <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/" component={<Landing />} />
+          <Route path="/" element={<Landing />} />
         </Routes>
       </div>
 
