@@ -1,0 +1,40 @@
+.footer {
+    background-color: #D9EEE1;
+    position: relative;
+}
+
+.footer .content {
+    border: 1px solid #D9EEE1;
+    height: relative;
+    display: flex;
+}
+
+.footer .content .section {
+    flex: 1;
+    /* padding: 25px; */
+    border: 1px;
+    text-align: start;
+}
+
+.footer .content .section b:hover{
+    border: 1px solid white;
+    color: white;
+    transform: scale(1.1);
+}
+
+.top {
+    justify-content: center;
+    text-align: center;
+}
+
+button {
+    background-color: green;
+    color: white;
+    border-radius: 1.5em;
+}
+
+button:hover {
+    background-color: rgb(84, 104, 97);
+    transform: scale(1.1);
+    transition: all 0.3s;
+}
