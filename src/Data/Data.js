@@ -1,5 +1,3 @@
-//Sidebar imports
-
 import {
   UilEstate,
   UilClipboardAlt,
